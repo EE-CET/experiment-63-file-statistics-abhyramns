@@ -7,24 +7,26 @@ public class FileStats {
         String fileName = "sample.txt";
         
         int lineCount = 0;
-        int wordCount = 0;
+*/        int wordCount = 0;
         int charCount = 0;
 
         // Use try-with-resources to ensure the reader is closed automatically
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             
-            // TODO: Read the file line by line until it returns null
+            // Read the file line by line until it returns null
             while ((line = reader.readLine()) != null) {
-                // TODO: Increment lineCount
                 
-                // TODO: Add the length of the current line to charCount
+                // Increment line count
+                lineCount++;
                 
-                // TODO: Split the line into words using split("\\s+") and add the length of the resulting array to wordCount
-                // Hint: Check if the line is not empty before splitting to avoid counting empty strings!
+                // Add the length of the current line to character count
+                charCount += line.length();
+                
+                // Split the line into words and count them
                 if (!line.trim().isEmpty()) {
                     String[] words = line.trim().split("\\s+");
-                    // Add words.length to wordCount
+                    wordCount += words.length;
                 }
             }
             
